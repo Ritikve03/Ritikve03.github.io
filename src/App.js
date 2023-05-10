@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import { useRef } from 'react';
 import './App.css';
+import Navbar from './Pages/Navbar/Navbar';
+import Navdetail from './Pages/Navbar/Navdetails';
+import Home from './components/Home/Home';
+import About from './components/About/About';
+import Skills from './components/Skills/Skills';
+import Github from './components/Github/Github';
+import { Contact } from './components/Contacts/Contacts';
+
 
 function App() {
+  let home = useRef();
+  let about = useRef();
+  let skill = useRef();
+  let contact = useRef();
+  let project = useRef(); 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container"></div>
+      <Navbar />
+      <Navdetail  home={home} about={about} skill={skill} contact={contact} project={project} />
+      <Home home={home}/>
+      <About about={about} />
+      <Skills skill={skill} />
+      <Github />
+      <Contact contact ={contact} />
     </div>
   );
 }
